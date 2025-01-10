@@ -1,0 +1,15 @@
+p{
+    color:black;
+    font-size: 28px;
+}
+
+.col-2{
+    width: 18%;
+    display: flex;
+    justify-content: center;
+}
+
+.card-shadow{
+    box-shadow: -8px 12px 18px 0 rgba(25, 42, 70, 0.13);
+    height: 25rem;
+}
