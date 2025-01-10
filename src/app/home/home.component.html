@@ -20,8 +20,9 @@
             </tr>
           </thead>
           <tbody>
+            @for(agency of agencies;track agency.id){
             <tr>
-              <td>Misioni 1</td>
+              <td>{{agency.name}}</td>
               <td>
                 <div class="d-flex align-items-center gap-2">
                   <a class="cursor-pointer">
@@ -33,58 +34,7 @@
                 </div>
               </td>
             </tr>
-            <tr>
-              <td>Misioni 1</td>
-              <td>
-                <div class="d-flex align-items-center gap-2">
-                  <a class="cursor-pointer">
-                    <img src="..\assets\delete.svg" alt="Delete Icon" />
-                  </a>
-                  <a class="cursor-pointer">
-                    <img src="..\assets\view.svg" alt="View Icon" />
-                  </a>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Misioni 1</td>
-              <td>
-                <div class="d-flex align-items-center gap-2">
-                  <a class="cursor-pointer">
-                    <img src="..\assets\delete.svg" alt="Delete Icon" />
-                  </a>
-                  <a class="cursor-pointer">
-                    <img src="..\assets\view.svg" alt="View Icon" />
-                  </a>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Misioni 1</td>
-              <td>
-                <div class="d-flex align-items-center gap-2">
-                  <a class="cursor-pointer">
-                    <img src="..\assets\delete.svg" alt="Delete Icon" />
-                  </a>
-                  <a class="cursor-pointer">
-                    <img src="..\assets\view.svg" alt="View Icon" />
-                  </a>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>Misioni 1</td>
-              <td>
-                <div class="d-flex align-items-center gap-2">
-                  <a class="cursor-pointer">
-                    <img src="..\assets\delete.svg" alt="Delete Icon" />
-                  </a>
-                  <a class="cursor-pointer">
-                    <img src="..\assets\view.svg" alt="View Icon" />
-                  </a>
-                </div>
-              </td>
-            </tr>
+          }
           </tbody>
         </table>
 
