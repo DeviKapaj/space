@@ -1,0 +1,43 @@
+<nav class="mt-1" aria-label="User Pagination">
+    <ul class="pagination d-flex justify-content-center mb-1">
+      <li class="page-item" [class.disabled]="currentPage() === 1">
+        <a class="page-link" href="#" aria-label="Previous" (click)="changePage(currentPage() - 1); $event.preventDefault();">
+          <span aria-hidden="true"><i class="bi bi-arrow-left stretch-arrow"></i></span>
+        </a>
+      </li>
+
+      @if(visiblePages()[0] > 1){
+        <li class="page-item">
+          <a class="page-link" href="#" (click)="changePage(1); $event.preventDefault();">1</a>
+        </li>
+      }
+    @if(visiblePages()[0] > 2){
+      <li class="page-item">
+        <a class="page-link" href="#" (click)="$event.preventDefault();">...</a>
+      </li>
+    }
+
+      @for( page of visiblePages();track page){
+        <li class="page-item"  [ngClass]="{'active': page === currentPage()}">
+          <a class="page-link" href="#" (click)="changePage(page); $event.preventDefault();">{{ page }}</a>
+        </li>
+      }
+
+      @if(visiblePages()[visiblePages().length - 1] < totalPages() - 1){
+        <li class="page-item" >
+          <a class="page-link" href="#" (click)="$event.preventDefault();">...</a>
+        </li>
+      }
+      @if(visiblePages()[visiblePages().length - 1] < totalPages()){
+
+        <li class="page-item" >
+          <a class="page-link" href="#" (click)="changePage(totalPages()); $event.preventDefault();">{{ totalPages() }}</a>
+        </li>
+      }
+      <li class="page-item" [class.disabled]="currentPage() === totalPages()">
+        <a class="page-link" href="#" aria-label="Next" (click)="changePage(currentPage() + 1); $event.preventDefault();">
+          <span aria-hidden="true"><i class="bi bi-arrow-right stretch-arrow"></i></span>
+        </a>
+      </li>
+    </ul>
+  </nav>

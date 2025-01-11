@@ -11,34 +11,50 @@
     <!-- Mission Card -->
     <div class="col-2 card card-shadow">
       <div class="card-body">
-        <h5 class="card-title text-center">Mission</h5>
-        <table class="table table-borderless mt-3">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            @for(agency of agencies;track agency.id){
-            <tr>
-              <td>{{agency.name}}</td>
-              <td>
-                <div class="d-flex align-items-center gap-2">
-                  <a class="cursor-pointer">
-                    <img src="..\assets\delete.svg" alt="Delete Icon" />
-                  </a>
-                  <a class="cursor-pointer">
-                    <img src="..\assets\view.svg" alt="View Icon" />
-                  </a>
-                </div>
-              </td>
-            </tr>
-          }
-          </tbody>
-        </table>
+        <h5 class="card-title text-center">Agency</h5>
+        <div class="table-container">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              @if(agencies.length > 0){
+                @for(agency of paginatedAgencies;track agency.id){
+                <tr>
+                  <td>{{agency.name}}</td>
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <a class="cursor-pointer" (click)="deleteAgency(agency.id)">
+                        <img src="..\assets\delete.svg" alt="Delete Icon" />
+                      </a>
+                      <a class="cursor-pointer">
+                        <img src="..\assets\view.svg" alt="View Icon" />
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              }
+            }
+            </tbody>
+          </table>
+          
+          <!-- Pagination Below the Table -->
+          <app-pagination 
+            [currentPage]="currentPage" 
+            [itemsPerPage]="itemsPerPage" 
+            [maxPagesToShow]="maxPagesToShow" 
+            [totalItems]="filteredAgencies.length" 
+            (pageChange)="onPageChange($event)"
+            style="    position: absolute;
+            bottom: 0;
+            width: 100%;">
+          </app-pagination>
+        </div>
 
-        <a class="cursor-pointer">
+        <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#modal_new_agency">
             <img src="..\assets\add.svg" alt="Add Icon" />
           </a>
 
@@ -62,7 +78,7 @@
     <!-- Agency Card -->
     <div class="col-2 card card-shadow">
       <div class="card-body text-center">
-        <h5 class="card-title">Agency</h5>
+        <h5 class="card-title">Mission</h5>
       </div>
     </div>
 
@@ -74,3 +90,5 @@
     </div>
   </div>
 </div>
+
+<app-new-agency (eventButton)="onRefresh($event)"></app-new-agency>

@@ -1,0 +1,28 @@
+.form-control{
+    font-size: 0.9rem;
+    background-color: #dbdbdb;
+}
+
+.label{
+    font-size: 0.9rem;
+}
+input:focus{
+  outline: none !important; /* Remove the focus outline */
+  box-shadow: none !important; /* Remove the focus box-shadow */
+  border-color: inherit; /* Optional: Retain the original border color */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-group-text{
+    background-color: #dbdbdb;
+}
+
+.btn{
+    width: 5rem;
+}
+

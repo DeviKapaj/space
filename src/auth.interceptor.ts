@@ -6,7 +6,8 @@ export const AuthInterceptor: HttpInterceptorFn =
         {
             setHeaders:{
                 'Content-Type': 'application/json'
-            }
+            },
+            withCredentials: true, 
         }
     )
 

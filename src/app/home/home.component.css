@@ -13,3 +13,14 @@ p{
     box-shadow: -8px 12px 18px 0 rgba(25, 42, 70, 0.13);
     height: 25rem;
 }
+
+.table-container {
+    min-height: 300px; /* or whatever height is appropriate */
+    position: relative;
+  }
+  
+  .pagination {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }

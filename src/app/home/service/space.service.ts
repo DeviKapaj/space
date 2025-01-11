@@ -15,4 +15,13 @@ export class SpaceService {
         const response = await firstValueFrom(this.http.get<any>(this.url + 'agencies'));
         return response
     }
+
+    async deleteAgency(id: number){
+        const response = await firstValueFrom(this.http.delete<any>(this.url + 'agencies/' + id + '/'))
+        return response
+    }
+
+    addAgency(agency: Agency){
+        return this.http.post<any>(this.url + 'agencies/', agency)
+    }
 }
